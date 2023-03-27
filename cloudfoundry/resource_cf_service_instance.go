@@ -277,13 +277,7 @@ func resourceServiceInstanceUpdate(ctx context.Context, d *schema.ResourceData, 
 		IsSet: true,
 		Value: tags,
 	}
-	params = make(map[string]interface{})
-	if len(jsonParameters) > 0 {
-		err := json.Unmarshal([]byte(jsonParameters), &params)
-		if err != nil {
-			return diag.FromErr(err)
-		}
-	}
+	
 	paramsFormatted := types.OptionalObject{
 		IsSet: true,
 		Value: params,
